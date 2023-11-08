@@ -11,19 +11,19 @@ Go (golang) client library for accessing the [Colete Online API](https://docs.ap
 
 ## Endpoints
 
-- [] /search/country/{needle}
-- [] /search/location/{countryCode}/{needle}
-- [] /search/city/{countryCode}/{county}/{needle}
-- [] /search/street/{countryCode}/{city}/{county}/{needle}
-- [] /search/postal-code/{countryCode}/{city}/{county}/{street}
-- [] /search/validate-postal-code/{countryCode}/{city}/{county}/{street}/{postalCode}
-- [] /search/postal-code-reverse/{countryCode}/{postalCode}
+- [ ] /search/country/{needle}
+- [ ] /search/location/{countryCode}/{needle}
+- [ ] /search/city/{countryCode}/{county}/{needle}
+- [ ] /search/street/{countryCode}/{city}/{county}/{needle}
+- [ ] /search/postal-code/{countryCode}/{city}/{county}/{street}
+- [ ] /search/validate-postal-code/{countryCode}/{city}/{county}/{street}/{postalCode}
+- [ ] /search/postal-code-reverse/{countryCode}/{postalCode}
 - [x] /address
 - [x] /service/list
 - [x] /order
 - [x] /order/price
 - [x] /order/status/{uniqueId}
-- [] /order/awb/{uniqueId}
+- [ ] /order/awb/{uniqueId}
 - [x] /user/balance
 
 ## Usage
