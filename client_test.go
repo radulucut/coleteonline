@@ -724,7 +724,7 @@ func newOrder() Order {
 				},
 			},
 		},
-		ServiceSelectStrategy: ServiceSelectStrategy{
+		Service: OrderService{
 			SelectionType: ServiceTypeDirectId,
 			ServiceIds:    []int64{1},
 		},
@@ -756,7 +756,7 @@ func newOrderWithAddressId() Order {
 				},
 			},
 		},
-		ServiceSelectStrategy: ServiceSelectStrategy{
+		Service: OrderService{
 			SelectionType: ServiceTypeDirectId,
 			ServiceIds:    []int64{1},
 		},
@@ -770,7 +770,7 @@ func newOrderWithAddressId() Order {
 
 func newOrderResponse() OrderResponse {
 	return OrderResponse{
-		Service: OrderService{
+		Service: OrderResponseService{
 			Price: ServicePrice{
 				Total: 10.0,
 				NoVat: 8.0,
@@ -789,7 +789,7 @@ func newOrderResponse() OrderResponse {
 
 func newOrderPriceResponse() OrderPriceResponse {
 	return OrderPriceResponse{
-		Selected: OrderService{
+		Selected: OrderResponseService{
 			Price: ServicePrice{
 				Total: 10.0,
 				NoVat: 8.0,
@@ -800,7 +800,7 @@ func newOrderPriceResponse() OrderPriceResponse {
 				Name:        "Service Name",
 			},
 		},
-		List: []OrderService{
+		List: []OrderResponseService{
 			{
 				Price: ServicePrice{
 					Total: 10.0,

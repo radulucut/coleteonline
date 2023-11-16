@@ -46,7 +46,7 @@ const (
 	ServiceGradeRepayment ServiceGrade = "repayment"
 )
 
-type ServiceSelectStrategy struct {
+type OrderService struct {
 	SelectionType ServiceType    `json:"selectionType"`
 	ServiceIds    []int64        `json:"serviceIds,omitempty"`
 	Grades        []ServiceGrade `json:"grades,omitempty"`
@@ -59,11 +59,11 @@ type Packages struct {
 }
 
 type Order struct {
-	Sender                Sender                `json:"sender"`
-	Recipient             Recipient             `json:"recipient"`
-	Packages              Packages              `json:"packages"`
-	ServiceSelectStrategy ServiceSelectStrategy `json:"serviceSelectStrategy"`
-	ExtraOptions          []interface{}         `json:"extraOptions,omitempty"`
+	Sender       Sender        `json:"sender"`
+	Recipient    Recipient     `json:"recipient"`
+	Packages     Packages      `json:"packages"`
+	Service      OrderService  `json:"service"`
+	ExtraOptions []interface{} `json:"extraOptions,omitempty"`
 }
 
 type ServicePrice struct {
@@ -77,7 +77,7 @@ type ServiceDetails struct {
 	Name        string `json:"name"`
 }
 
-type OrderService struct {
+type OrderResponseService struct {
 	Price   ServicePrice   `json:"price"`
 	Service ServiceDetails `json:"service"`
 }
@@ -98,15 +98,15 @@ const (
 )
 
 type OrderResponse struct {
-	Service             OrderService `json:"service"`
-	AWB                 string       `json:"awb"`
-	UniqueId            string       `json:"uniqueId"`
-	EstimatedPickupDate string       `json:"estimatedPickupDate"`
+	Service             OrderResponseService `json:"service"`
+	AWB                 string               `json:"awb"`
+	UniqueId            string               `json:"uniqueId"`
+	EstimatedPickupDate string               `json:"estimatedPickupDate"`
 }
 
 type OrderPriceResponse struct {
-	Selected OrderService   `json:"selected"`
-	List     []OrderService `json:"list"`
+	Selected OrderResponseService   `json:"selected"`
+	List     []OrderResponseService `json:"list"`
 }
 
 type StatusSummary struct {
