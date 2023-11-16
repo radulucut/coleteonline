@@ -24,12 +24,10 @@ const (
 )
 
 type Package struct {
-	Type    PackageType `json:"type"`
-	Content string      `json:"content"`
-	Weight  float64     `json:"weight"`
-	Width   float64     `json:"width"`
-	Height  float64     `json:"height"`
-	Length  float64     `json:"length"`
+	Weight float64 `json:"weight"`
+	Width  float64 `json:"width"`
+	Height float64 `json:"height"`
+	Length float64 `json:"length"`
 }
 
 type ServiceType string
@@ -54,12 +52,18 @@ type ServiceSelectStrategy struct {
 	Grades        []ServiceGrade `json:"grades,omitempty"`
 }
 
+type Packages struct {
+	Type    PackageType `json:"type"`
+	Content string      `json:"content"`
+	List    []Package   `json:"list"`
+}
+
 type Order struct {
-	Sender                Sender                   `json:"sender"`
-	Recipient             Recipient                `json:"recipient"`
-	Packages              []Package                `json:"packages"`
-	ServiceSelectStrategy ServiceSelectStrategy    `json:"serviceSelectStrategy"`
-	ExtraOptions          []map[string]interface{} `json:"extraOptions,omitempty"`
+	Sender                Sender                `json:"sender"`
+	Recipient             Recipient             `json:"recipient"`
+	Packages              Packages              `json:"packages"`
+	ServiceSelectStrategy ServiceSelectStrategy `json:"serviceSelectStrategy"`
+	ExtraOptions          []interface{}         `json:"extraOptions,omitempty"`
 }
 
 type ServicePrice struct {

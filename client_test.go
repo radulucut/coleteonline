@@ -712,20 +712,24 @@ func newOrder() Order {
 			},
 			ValidationStrategy: ValidationStrategyTypeMinimal,
 		},
-		Packages: []Package{
-			{
-				Weight: 1.0,
-				Width:  1.0,
-				Height: 1.0,
-				Length: 1.0,
+		Packages: Packages{
+			Type:    PackageTypePackage,
+			Content: "Content",
+			List: []Package{
+				{
+					Weight: 1.0,
+					Width:  1.0,
+					Height: 1.0,
+					Length: 1.0,
+				},
 			},
 		},
 		ServiceSelectStrategy: ServiceSelectStrategy{
 			SelectionType: ServiceTypeDirectId,
 			ServiceIds:    []int64{1},
 		},
-		ExtraOptions: []map[string]interface{}{
-			{
+		ExtraOptions: []interface{}{
+			map[string]interface{}{
 				"id": ExtraOptionIdOpenAtDelivery,
 			},
 		},
@@ -740,20 +744,24 @@ func newOrderWithAddressId() Order {
 		Recipient: Recipient{
 			AddressId: 2,
 		},
-		Packages: []Package{
-			{
-				Weight: 1.0,
-				Width:  1.0,
-				Height: 1.0,
-				Length: 1.0,
+		Packages: Packages{
+			Type:    PackageTypePackage,
+			Content: "Content",
+			List: []Package{
+				{
+					Weight: 1.0,
+					Width:  1.0,
+					Height: 1.0,
+					Length: 1.0,
+				},
 			},
 		},
 		ServiceSelectStrategy: ServiceSelectStrategy{
 			SelectionType: ServiceTypeDirectId,
 			ServiceIds:    []int64{1},
 		},
-		ExtraOptions: []map[string]interface{}{
-			{
+		ExtraOptions: []interface{}{
+			map[string]interface{}{
 				"id": ExtraOptionIdOpenAtDelivery,
 			},
 		},
