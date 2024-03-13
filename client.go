@@ -206,8 +206,8 @@ func (c *Client) request(
 		}
 		return nil
 	}
+	// Unauthorized: retry request in case the token expired
 	if r.StatusCode == 401 {
-		c.authBearer = ""
 		return c.request(method, path, body, res)
 	}
 	return &ResponseError{
