@@ -15,13 +15,13 @@ import (
 
 // https://docs.api.colete-online.ro
 type Client struct {
+	sync.Mutex
 	authURL       string
 	apiURL        string
 	authBasic     string
 	authBearer    string
 	authBearerExp time.Time
 	http          *http.Client
-	mu            sync.Mutex
 	timeNow       func() time.Time
 }
 
@@ -44,7 +44,6 @@ func NewClient(config Config) *Client {
 		timeNow: func() time.Time {
 			return time.Now()
 		},
-		mu: sync.Mutex{},
 	}
 	if config.UseProduction {
 		client.apiURL = "https://api.colete-online.ro/v1"
@@ -55,8 +54,8 @@ func NewClient(config Config) *Client {
 }
 
 func (c *Client) GetAuthBearer() (*string, error) {
-	c.mu.Lock()
-	defer c.mu.Unlock()
+	c.Lock()
+	defer c.Unlock()
 	if c.timeNow().After(c.authBearerExp) {
 		req, err := http.NewRequest(
 			"POST",
